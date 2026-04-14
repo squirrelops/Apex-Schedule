@@ -206,6 +206,28 @@
     box-shadow: 0 4px 14px rgba(160,120,48,0.18), 0 8px 28px rgba(160,120,48,0.1);
   }
 
+  .game-card.tournament {
+    border-left-color: #2a7a58;
+    background: #F0EDE3 !important;
+    background-color: #F0EDE3 !important;
+  }
+
+  .game-card.tournament:hover {
+    border-left-color: #0F3E2D;
+  }
+
+  .tournament-banner {
+    display: inline-block;
+    background: #0F3E2D;
+    color: #EDE3D1;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    margin-bottom: 6px;
+  }
+
   .date-col {
     text-align: center;
     border-right: 1px solid #d9ccb5;
@@ -305,6 +327,7 @@
   @keyframes bpulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
   .badge-upcoming { color: #a07830; border: 1.5px solid #a07830; background: transparent; }
   .badge-past { color: #c8b898; border: 1.5px solid #c8b898; background: transparent; }
+  .badge-tournament { color: #2a7a58; border: 1.5px solid #2a7a58; background: transparent; }
 
   footer {
     text-align: center;
@@ -367,6 +390,7 @@
   <div class="filter-bar">
     <button class="filter-btn active" onclick="filterGames('all', this)">All Games</button>
     <button class="filter-btn" onclick="filterGames('upcoming', this)">Upcoming</button>
+    <button class="filter-btn" onclick="filterGames('tournaments', this)">Tournaments</button>
     <button class="filter-btn" onclick="filterGames('april', this)">April</button>
     <button class="filter-btn" onclick="filterGames('may', this)">May</button>
     <button class="filter-btn" onclick="filterGames('june', this)">June</button>
@@ -375,14 +399,13 @@
   <div id="schedule-container"></div>
 
   <footer>
-    <p class="update-note">Schedule updated per UPG Baseball &middot; Revised April 13, 2026</p>
+    <p class="update-note">Schedule updated per UPG Baseball &middot; Revised April 14, 2026</p>
     <a class="upg-link" href="https://www.upgbaseball.com/baseball/spring-weekday-league/" target="_blank">&nearr; Full league schedule at upgbaseball.com</a>
   </footer>
 
 </div>
 
 <script>
-// Parse date as local (not UTC) to avoid timezone shift
 function localDate(y, m, d) {
   return new Date(y, m - 1, d);
 }
@@ -394,6 +417,7 @@ const uniforms = {
   'Mon': 'Tan Uniform',
   'Wed': 'Green Pinstripe Uniform',
   'Fri': 'Tan Uniform',
+  'Sat': 'Tan Uniform',
 };
 
 const schedule = [
@@ -428,6 +452,28 @@ const schedule = [
     locationAddress: '500 East Canal Road, Salem, UT',
   },
   {
+    date: localDate(2026,4,24), weekday: 'Fri', month: 'april',
+    tournament: 'Rainmaker Tournament',
+    games: [
+      { time: '9:45a', home: 'Juab Blues', away: 'Apex', apex: 'away' },
+      { time: '11:30a', home: 'Richfield Royals', away: 'Apex', apex: 'away' },
+    ],
+    locationName: 'Nephi Nebo View Park – Middle Field',
+    locationAddress: '990 N 400 E, Nephi, UT',
+    uniformOverride: 'Tan Uniform',
+  },
+  {
+    date: localDate(2026,4,25), weekday: 'Sat', month: 'april',
+    tournament: 'Rainmaker Tournament',
+    games: [
+      { time: 'TBD', home: 'TBD', away: 'Apex', apex: 'away' },
+    ],
+    locationName: 'Nephi Nebo View Park – Middle Field',
+    locationAddress: '990 N 400 E, Nephi, UT',
+    uniformOverride: 'Tan Uniform',
+    tbd: true,
+  },
+  {
     date: localDate(2026,4,27), weekday: 'Mon', month: 'april',
     games: [
       { time: '4:20p', home: 'Apex', away: 'Mountaineers', apex: 'home' },
@@ -453,6 +499,22 @@ const schedule = [
     ],
     locationName: 'Spanish Fork Russell Swenson / Salem Veterans',
     locationAddress: '300 South 300 West, Spanish Fork, UT',
+  },
+  {
+    date: localDate(2026,5,8), weekday: 'Fri', month: 'may',
+    tournament: 'Battle of the Roses',
+    games: [{ time: 'TBD', home: 'TBD', away: 'Apex', apex: 'away' }],
+    locationName: 'Location TBD',
+    locationAddress: '',
+    tbd: true,
+  },
+  {
+    date: localDate(2026,5,9), weekday: 'Sat', month: 'may',
+    tournament: 'Battle of the Roses',
+    games: [{ time: 'TBD', home: 'TBD', away: 'Apex', apex: 'away' }],
+    locationName: 'Location TBD',
+    locationAddress: '',
+    tbd: true,
   },
   {
     date: localDate(2026,5,11), weekday: 'Mon', month: 'may',
@@ -482,6 +544,22 @@ const schedule = [
     locationAddress: '990 North 400 East, Nephi, UT',
   },
   {
+    date: localDate(2026,6,5), weekday: 'Fri', month: 'june',
+    tournament: 'Beehive Classic',
+    games: [{ time: 'TBD', home: 'TBD', away: 'Apex', apex: 'away' }],
+    locationName: 'Location TBD',
+    locationAddress: '',
+    tbd: true,
+  },
+  {
+    date: localDate(2026,6,6), weekday: 'Sat', month: 'june',
+    tournament: 'Beehive Classic',
+    games: [{ time: 'TBD', home: 'TBD', away: 'Apex', apex: 'away' }],
+    locationName: 'Location TBD',
+    locationAddress: '',
+    tbd: true,
+  },
+  {
     date: localDate(2026,6,8), weekday: 'Mon', month: 'june',
     games: [
       { time: '4:20p', home: 'Apex', away: 'L7 Weenies', apex: 'home' },
@@ -506,7 +584,10 @@ function mapsLink(address) {
   return `https://maps.apple.com/?q=${encodeURIComponent(address)}`;
 }
 
-function renderMatchup(g) {
+function renderMatchup(g, tbd) {
+  if (tbd) {
+    return `<div class="matchup-row"><span class="game-time">TBD</span><span class="game-vs">Games &amp; times to be announced</span></div>`;
+  }
   const h = g.apex === 'home' ? `<span class="apex-name">Apex</span>` : g.home;
   const a = g.apex === 'away' ? `<span class="apex-name">Apex</span>` : g.away;
   return `<div class="matchup-row"><span class="game-time">${g.time}</span><span class="game-vs">${h} vs. ${a}</span></div>`;
@@ -516,10 +597,24 @@ function renderCard(e) {
   const status = getStatus(e.date);
   const day = e.date.getDate();
   const mon = e.month.substring(0, 3).toUpperCase();
-  const cardClass = status === 'past' ? 'past' : status === 'upcoming' ? 'upcoming' : '';
-  const badgeClass = status === 'today' ? 'badge-today' : status === 'past' ? 'badge-past' : 'badge-upcoming';
-  const badgeText = status === 'today' ? '&bull; Today' : status === 'past' ? 'Played' : 'Upcoming';
-  const uniform = uniforms[e.weekday] || '';
+  const isTournament = !!e.tournament;
+  const cardClass = isTournament ? 'tournament' : (status === 'past' ? 'past' : status === 'upcoming' ? 'upcoming' : '');
+  const badgeClass = isTournament ? 'badge-tournament' : (status === 'today' ? 'badge-today' : status === 'past' ? 'badge-past' : 'badge-upcoming');
+  const badgeText = isTournament ? 'Tournament' : (status === 'today' ? '&bull; Today' : status === 'past' ? 'Played' : 'Upcoming');
+  const uniform = e.uniformOverride || (isTournament ? 'Tan Uniform' : (uniforms[e.weekday] || ''));
+
+  const tournamentBanner = isTournament ? `<div class="tournament-banner">&#9733; ${e.tournament}</div>` : '';
+  const matchupsHtml = e.tbd
+    ? renderMatchup(null, true)
+    : e.games.map(g => renderMatchup(g, false)).join('');
+
+  const locationHtml = e.locationAddress
+    ? `<div class="location-name">&#x1F4CD; ${e.locationName}</div>
+       <div class="location-address">${e.locationAddress}</div>
+       <div><span class="uniform-note">&#128085; ${uniform}</span></div>
+       <a class="location-link" href="${mapsLink(e.locationAddress)}" target="_blank">Get Directions &rarr;</a>`
+    : `<div class="location-name">&#x1F4CD; ${e.locationName}</div>
+       <div><span class="uniform-note">&#128085; ${uniform}</span></div>`;
 
   return `<div class="game-card ${cardClass}">
     <div class="date-col">
@@ -528,13 +623,9 @@ function renderCard(e) {
       <div class="date-month">${mon}</div>
     </div>
     <div class="game-col">
-      <div class="game-matchups">${e.games.map(renderMatchup).join('')}</div>
-      <div class="game-location">
-        <div class="location-name">&#x1F4CD; ${e.locationName}</div>
-        <div class="location-address">${e.locationAddress}</div>
-        <div><span class="uniform-note">&#128085; ${uniform}</span></div>
-        <a class="location-link" href="${mapsLink(e.locationAddress)}" target="_blank">Get Directions &rarr;</a>
-      </div>
+      ${tournamentBanner}
+      <div class="game-matchups">${matchupsHtml}</div>
+      <div class="game-location">${locationHtml}</div>
     </div>
     <span class="status-badge ${badgeClass}">${badgeText}</span>
   </div>`;
@@ -546,6 +637,9 @@ function renderAll(filter) {
   if (filter === 'upcoming') {
     const entries = schedule.filter(e => getStatus(e.date) !== 'past');
     html = entries.length ? entries.map(renderCard).join('') : '<p style="text-align:center;opacity:0.3;padding:40px 0;font-size:13px;">No upcoming games.</p>';
+  } else if (filter === 'tournaments') {
+    const entries = schedule.filter(e => !!e.tournament);
+    html = entries.length ? entries.map(renderCard).join('') : '<p style="text-align:center;opacity:0.3;padding:40px 0;font-size:13px;">No tournaments found.</p>';
   } else {
     for (const m of ['april', 'may', 'june']) {
       if (filter !== 'all' && filter !== m) continue;
