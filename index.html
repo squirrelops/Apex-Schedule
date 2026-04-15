@@ -516,7 +516,6 @@ const schedule = [
     ],
     locationName: 'Nephi Nebo View Park – Middle Field',
     locationAddress: '990 N 400 E, Nephi, UT',
-    uniformOverride: 'Tan Uniform',
   },
   {
     date: localDate(2026,4,25), weekday: 'Sat', month: 'april',
@@ -526,7 +525,6 @@ const schedule = [
     ],
     locationName: 'Nephi Nebo View Park – Middle Field',
     locationAddress: '990 N 400 E, Nephi, UT',
-    uniformOverride: 'Tan Uniform',
     tbd: true,
   },
   {
@@ -657,7 +655,7 @@ function renderCard(e) {
   const cardClass = isTournament ? 'tournament' : (status === 'past' ? 'past' : status === 'upcoming' ? 'upcoming' : '');
   const badgeClass = isTournament ? 'badge-tournament' : (status === 'today' ? 'badge-today' : status === 'past' ? 'badge-past' : 'badge-upcoming');
   const badgeText = isTournament ? 'Tournament' : (status === 'today' ? '&bull; Today' : status === 'past' ? 'Played' : 'Upcoming');
-  const uniform = e.uniformOverride || (isTournament ? 'Tan Uniform' : (uniforms[e.weekday] || ''));
+  const uniform = e.uniformOverride || (isTournament && e.weekday === 'Sat' ? 'Green Pinstripe Uniform' : (uniforms[e.weekday] || ''));
 
   const tournamentBanner = isTournament ? `<div class="tournament-banner">&#9733; ${e.tournament}</div>` : '';
   const matchupsHtml = e.tbd
