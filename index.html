@@ -469,8 +469,8 @@
   </div>
 
   <div class="filter-bar">
-    <button class="filter-btn active" onclick="filterGames('all', this)">All Games</button>
-    <button class="filter-btn" onclick="filterGames('upcoming', this)">Upcoming</button>
+    <button class="filter-btn" onclick="filterGames('all', this)">All Games</button>
+    <button class="filter-btn active" onclick="filterGames('upcoming', this)">Upcoming</button>
     <button class="filter-btn" onclick="filterGames('tournaments', this)">Tournaments</button>
     <button class="filter-btn" onclick="filterGames('april', this)">April</button>
     <button class="filter-btn" onclick="filterGames('may', this)">May</button>
@@ -750,7 +750,7 @@ function filterGames(type, btn) {
   renderAll(type);
 }
 
-renderAll('all');
+renderAll('upcoming');
 </script>
 </body>
 </html>
