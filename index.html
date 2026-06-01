@@ -322,6 +322,9 @@
     opacity: 0.7;
   }
 
+  .pool-note { font-size: clamp(9px, 2.2vw, 10px); color: #0F3E2D; opacity: 0.55; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin: 4px 0 2px; }
+  .advance-note { font-size: clamp(9px, 2.2vw, 10px); color: #0F3E2D; opacity: 0.5; margin: 2px 0 4px; line-height: 1.4; }
+
   .location-name { font-size: clamp(10px, 2.6vw, 11px); color: #0F3E2D; opacity: 0.55; font-weight: 600; line-height: 1.4; }
   .location-address { font-size: clamp(9.5px, 2.4vw, 10.5px); color: #0F3E2D; opacity: 0.35; font-style: italic; margin-top: 2px; line-height: 1.4; }
 
@@ -480,7 +483,7 @@
   <div id="schedule-container"></div>
 
   <footer>
-    <p class="update-note">Schedule updated per UPG Baseball &middot; Revised May 17, 2026</p>
+    <p class="update-note">Schedule updated per UPG Baseball &middot; Revised May 31, 2026</p>
     <a class="upg-link" href="https://www.upgbaseball.com/baseball/spring-weekday-league/" target="_blank">&nearr; Full league schedule at upgbaseball.com</a>
   </footer>
 
@@ -643,18 +646,25 @@ const schedule = [
   {
     date: localDate(2026,6,5), weekday: 'Fri', month: 'june',
     tournament: 'Beehive Classic',
-    games: [{ time: 'TBD', home: 'TBD', away: 'Apex', apex: 'away' }],
-    locationName: 'Location TBD',
-    locationAddress: '',
-    tbd: true,
+    games: [
+      { time: '9:00 AM', home: 'Ghosts', away: 'Apex', apex: 'away', locationName: 'Field 4', locationAddress: '500 East Canal Road, Salem, UT' },
+      { time: '11:00 AM', home: 'Apex', away: 'Utah Braves', apex: 'home', locationName: 'Field 4', locationAddress: '500 East Canal Road, Salem, UT' },
+    ],
+    locationName: 'Salem Loafer View Complex',
+    locationAddress: '500 East Canal Road, Salem, UT',
+    poolNote: '11u Pool A',
   },
   {
     date: localDate(2026,6,6), weekday: 'Sat', month: 'june',
     tournament: 'Beehive Classic',
-    games: [{ time: 'TBD', home: 'TBD', away: 'Apex', apex: 'away' }],
-    locationName: 'Location TBD',
-    locationAddress: '',
-    tbd: true,
+    games: [
+      { time: '9:00 AM', home: 'Utah Fighters', away: 'Apex', apex: 'away', locationName: 'Field 1', locationAddress: '500 East Canal Road, Salem, UT' },
+      { time: '1:00 PM', home: 'SC Naturals', away: 'Apex', apex: 'away', locationName: 'Field 1', locationAddress: '500 East Canal Road, Salem, UT' },
+    ],
+    locationName: 'Salem Loafer View Complex',
+    locationAddress: '500 East Canal Road, Salem, UT',
+    poolNote: '11u Pool A',
+    advanceNote: 'Top seed from Pool A will advance to the Championship Game – time TBD',
   },
   {
     date: localDate(2026,6,8), weekday: 'Mon', month: 'june',
@@ -708,6 +718,9 @@ function renderCard(e) {
     ? renderMatchup(null, true)
     : e.games.map(g => renderMatchup(g, false)).join('');
 
+  const poolNoteHtml = e.poolNote ? `<div class="pool-note">${e.poolNote}</div>` : '';
+  const advanceNoteHtml = e.advanceNote ? `<div class="advance-note"><em>${e.advanceNote}</em></div>` : '';
+
   const locationHtml = !e.locationName
     ? `<div><span class="uniform-note">&#128085; ${uniform}</span></div>`
     : e.locationAddress
@@ -727,6 +740,8 @@ function renderCard(e) {
     <div class="game-col">
       ${tournamentBanner}
       <div class="game-matchups">${matchupsHtml}</div>
+      ${poolNoteHtml}
+      ${advanceNoteHtml}
       <div class="game-location">${locationHtml}</div>
     </div>
     <span class="status-badge ${badgeClass}">${badgeText}</span>
