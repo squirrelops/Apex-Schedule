@@ -495,6 +495,11 @@ function localDate(y, m, d) {
 const today = new Date();
 today.setHours(0, 0, 0, 0);
 
+// TEMP: new boys' Green Hooded Tee Jersey uniforms have not arrived yet.
+// This override forces every game to show the temp uniform note below.
+// Remove or set this to null to revert to the normal per-weekday uniforms lookup.
+const TEMP_UNIFORM_OVERRIDE = 'Green Hooded Tee Jersey, White Pants, Green Socks & Belt';
+
 const uniforms = {
   'Mon': 'Tan Uniform',
 };
@@ -544,7 +549,7 @@ function renderCard(e) {
   const cardClass = isTournament ? 'tournament' : (status === 'past' ? 'past' : status === 'upcoming' ? 'upcoming' : '');
   const badgeClass = isTournament ? 'badge-tournament' : (status === 'today' ? 'badge-today' : status === 'past' ? 'badge-past' : 'badge-upcoming');
   const badgeText = isTournament ? 'Tournament' : (status === 'today' ? '&bull; Today' : status === 'past' ? 'Played' : 'Upcoming');
-  const uniform = e.uniformOverride || uniforms[e.weekday] || '';
+  const uniform = e.uniformOverride || TEMP_UNIFORM_OVERRIDE || uniforms[e.weekday] || '';
 
   const tournamentBanner = isTournament ? `<div class="tournament-banner">&#9733; ${e.tournament}</div>` : '';
   const matchupsHtml = e.tbd
