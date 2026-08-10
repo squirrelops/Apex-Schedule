@@ -464,7 +464,7 @@
   </header>
 
   <div class="disclaimer">
-    <strong>Note:</strong> Game times listed are not player arrival times. Check <strong>GameChanger</strong> for your arrival time and any last-minute updates. Only Week 1 (Aug 17) has posted so far &mdash; weeks 2&ndash;5 will be added as UPG releases them.
+    <strong>Note:</strong> Game times listed are not player arrival times. Check <strong>GameChanger</strong> for your arrival time and any last-minute updates. Only Week 1 (Aug 17) of the UPG league has posted so far &mdash; weeks 2&ndash;5 will be added as UPG releases them. Tournament game times marked TBD will be updated as GameChanger is confirmed.
   </div>
 
   <div class="gc-link-bar">
@@ -474,14 +474,16 @@
   <div class="filter-bar">
     <button class="filter-btn" onclick="filterGames('all', this)">All Games</button>
     <button class="filter-btn active" onclick="filterGames('upcoming', this)">Upcoming</button>
+    <button class="filter-btn" onclick="filterGames('tournaments', this)">Tournaments</button>
     <button class="filter-btn" onclick="filterGames('august', this)">August</button>
     <button class="filter-btn" onclick="filterGames('september', this)">September</button>
+    <button class="filter-btn" onclick="filterGames('october', this)">October</button>
   </div>
 
   <div id="schedule-container"></div>
 
   <footer>
-    <p class="update-note">Schedule updated per UPG Baseball &middot; Week 1 posted August 10, 2026</p>
+    <p class="update-note">Schedule updated per UPG Baseball &amp; GameChanger &middot; Last updated August 10, 2026</p>
     <a class="upg-link" href="https://www.upgbaseball.com/baseball/fall-monday-night-league/" target="_blank">&nearr; Full league schedule at upgbaseball.com</a>
   </footer>
 
@@ -513,9 +515,44 @@ const schedule = [
     locationName: 'Lehi Veterans Park – Field 3',
     locationAddress: '850 West Main Street, Lehi, UT',
   },
+  {
+    date: localDate(2026,8,29), weekday: 'Sat', month: 'august',
+    tournament: 'Utah Swarm Round Robin',
+    games: [
+      { time: '12:00p', home: 'Apex', away: 'TBD', apex: 'home' },
+      { time: '2:00p', home: 'Apex', away: 'Utah Swarm 12U', apex: 'home' },
+    ],
+    locationName: 'West Valley City Park',
+    locationAddress: '4552 W 3500 S, West Valley City, UT',
+  },
+  {
+    date: localDate(2026,9,4), weekday: 'Fri', month: 'september',
+    tournament: 'Labor Day Tournament',
+    tbd: true,
+  },
+  {
+    date: localDate(2026,9,5), weekday: 'Sat', month: 'september',
+    tournament: 'Labor Day Tournament',
+    tbd: true,
+  },
+  {
+    date: localDate(2026,9,7), weekday: 'Mon', month: 'september',
+    tournament: 'Labor Day Tournament',
+    tbd: true,
+  },
+  {
+    date: localDate(2026,10,2), weekday: 'Fri', month: 'october',
+    tournament: 'UPG Wood Bat Tournament',
+    tbd: true,
+  },
+  {
+    date: localDate(2026,10,3), weekday: 'Sat', month: 'october',
+    tournament: 'UPG Wood Bat Tournament',
+    tbd: true,
+  },
 ];
 
-const monthLabels = { august: 'August', september: 'September' };
+const monthLabels = { august: 'August', september: 'September', october: 'October' };
 
 function getStatus(date) {
   const d = new Date(date);
@@ -596,7 +633,7 @@ function renderAll(filter) {
     const entries = schedule.filter(e => !!e.tournament);
     html = entries.length ? entries.map(renderCard).join('') : '<p style="text-align:center;opacity:0.3;padding:40px 0;font-size:13px;">No tournaments found.</p>';
   } else {
-    for (const m of ['august', 'september']) {
+    for (const m of ['august', 'september', 'october']) {
       if (filter !== 'all' && filter !== m) continue;
       const entries = schedule.filter(e => e.month === m);
       if (!entries.length) continue;
