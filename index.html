@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light only">
-<title>Apex Baseball — 2026 UPG Spring League Schedule</title>
+<title>Apex Baseball — 2026 UPG Fall League Schedule</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:ital,wght@0,300;0,500;0,700;1,300&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -456,15 +456,15 @@
   <header>
     <div class="top-rule">
       <span class="rule-line"></span>
-      <span class="league-tag">UPG Spring Weekday League &middot; 11U</span>
+      <span class="league-tag">UPG Fall Monday Night League &middot; 12U</span>
       <span class="rule-line"></span>
     </div>
     <h1>APEX<span class="sub">Baseball Club</span></h1>
-    <div class="season-stripe">2026 Game Schedule</div>
+    <div class="season-stripe">2026 Fall Schedule</div>
   </header>
 
   <div class="disclaimer">
-    <strong>Note:</strong> Game times listed are not player arrival times. Check <strong>GameChanger</strong> for your arrival time and any last-minute updates.
+    <strong>Note:</strong> Game times listed are not player arrival times. Check <strong>GameChanger</strong> for your arrival time and any last-minute updates. Only Week 1 (Aug 17) has posted so far &mdash; weeks 2&ndash;5 will be added as UPG releases them.
   </div>
 
   <div class="gc-link-bar">
@@ -474,17 +474,15 @@
   <div class="filter-bar">
     <button class="filter-btn" onclick="filterGames('all', this)">All Games</button>
     <button class="filter-btn active" onclick="filterGames('upcoming', this)">Upcoming</button>
-    <button class="filter-btn" onclick="filterGames('tournaments', this)">Tournaments</button>
-    <button class="filter-btn" onclick="filterGames('april', this)">April</button>
-    <button class="filter-btn" onclick="filterGames('may', this)">May</button>
-    <button class="filter-btn" onclick="filterGames('june', this)">June</button>
+    <button class="filter-btn" onclick="filterGames('august', this)">August</button>
+    <button class="filter-btn" onclick="filterGames('september', this)">September</button>
   </div>
 
   <div id="schedule-container"></div>
 
   <footer>
-    <p class="update-note">Schedule updated per UPG Baseball &middot; Revised May 31, 2026</p>
-    <a class="upg-link" href="https://www.upgbaseball.com/baseball/spring-weekday-league/" target="_blank">&nearr; Full league schedule at upgbaseball.com</a>
+    <p class="update-note">Schedule updated per UPG Baseball &middot; Week 1 posted August 10, 2026</p>
+    <a class="upg-link" href="https://www.upgbaseball.com/baseball/fall-monday-night-league/" target="_blank">&nearr; Full league schedule at upgbaseball.com</a>
   </footer>
 
 </div>
@@ -499,185 +497,20 @@ today.setHours(0, 0, 0, 0);
 
 const uniforms = {
   'Mon': 'Tan Uniform',
-  'Wed': 'Green Pinstripe Uniform',
-  'Fri': 'Tan Uniform',
-  'Sat': 'Green Pinstripe Uniform',
 };
 
 const schedule = [
   {
-    date: localDate(2026,4,13), weekday: 'Mon', month: 'april',
+    date: localDate(2026,8,17), weekday: 'Mon', month: 'august',
     games: [
-      { time: '4:20p', home: 'Utah Talons Red', away: 'Apex', apex: 'away' },
-      { time: '6:20p', home: 'Apex', away: 'Utah Talons Black', apex: 'home' },
+      { time: '6:20p', home: 'Apex', away: 'Saratoga Stingers', apex: 'home' },
     ],
-    locationName: 'Nephi Orgill Park – West Field',
-    locationAddress: '600 East 100 North, Nephi, UT',
-  },
-  {
-    date: localDate(2026,4,15), weekday: 'Wed', month: 'april',
-    games: [{ time: '6:20p', home: 'Mountaineers', away: 'Apex', apex: 'away' }],
-    locationName: 'Salem Loafer Complex – Field 5',
-    locationAddress: '500 East Canal Road, Salem, UT',
-  },
-  {
-    date: localDate(2026,4,20), weekday: 'Mon', month: 'april',
-    games: [
-      { time: '4:20p', home: 'Apex', away: 'Lehi Tigers', apex: 'home' },
-      { time: '6:20p', home: 'Apex', away: 'SS Stingers', apex: 'home' },
-    ],
-    locationName: 'Salem Veterans Park – East Field',
-    locationAddress: '100 East Center Street, Salem, UT 84653',
-  },
-  {
-    date: localDate(2026,4,22), weekday: 'Wed', month: 'april',
-    games: [{ time: '4:20p', home: 'Apex', away: 'OBC Warriors', apex: 'home' }],
-    locationName: 'Salem Loafer Complex – Field 5',
-    locationAddress: '500 East Canal Road, Salem, UT',
-  },
-  {
-    date: localDate(2026,4,24), weekday: 'Fri', month: 'april',
-    tournament: 'Rainmaker Tournament',
-    games: [
-      { time: '9:45a', home: 'Juab Blues', away: 'Apex', apex: 'away' },
-      { time: '11:30a', home: 'Richfield Royals', away: 'Apex', apex: 'away' },
-    ],
-    locationName: 'Nephi Nebo View Park – Middle Field',
-    locationAddress: '990 N 400 E, Nephi, UT',
-  },
-  {
-    date: localDate(2026,4,25), weekday: 'Sat', month: 'april',
-    tournament: 'Rainmaker Tournament',
-    games: [
-      { time: 'TBD', home: 'TBD', away: 'Apex', apex: 'away' },
-    ],
-    locationName: 'Nephi Nebo View Park – Middle Field',
-    locationAddress: '990 N 400 E, Nephi, UT',
-    tbd: true,
-  },
-  {
-    date: localDate(2026,4,27), weekday: 'Mon', month: 'april',
-    games: [
-      { time: '4:20p', home: 'Apex', away: 'Mountaineers', apex: 'home' },
-      { time: '6:20p', home: 'Xtreme', away: 'Apex', apex: 'away' },
-    ],
-    locationName: 'Salem Loafer Complex – Field 5',
-    locationAddress: '100 East Center Street, Salem, UT 84653',
-  },
-  {
-    date: localDate(2026,5,1), weekday: 'Fri', month: 'may',
-    games: [
-      { time: '5:30p', home: 'Apex', away: 'Sabotage', apex: 'home' },
-      { time: '7:30p', home: 'Apex', away: 'Red Sox', apex: 'home' },
-    ],
-    locationName: 'Game 1: Salem Loafer Complex – Field 3 · Game 2: Salem Loafer Complex – Field 4',
-    locationAddress: '500 East Canal Road, Salem, UT',
-  },
-  {
-    date: localDate(2026,5,4), weekday: 'Mon', month: 'may',
-    games: [
-      { time: '4:20p', home: 'Apex', away: 'L7 Weenies', apex: 'home' },
-      { time: '8:20p', home: 'Sluggers', away: 'Apex', apex: 'away' },
-    ],
-    locationName: 'Game 1: Spanish Fork Fireman Field – Russell Swenson Ball Park · Game 2: Payson Hillman Middle Complex – Field 4',
-    locationAddress: '171 W 300 S, Spanish Fork, UT · 1060 North Main Street, Payson, UT',
-  },
-  {
-    date: localDate(2026,5,8), weekday: 'Fri', month: 'may',
-    tournament: 'Battle of the Roses',
-    games: [
-      { time: '1:00p', home: 'Apex', away: 'Hungry Hippos', apex: 'home' },
-      { time: '5:00p', home: 'Red Sox', away: 'Apex', apex: 'away' },
-    ],
-    locationName: 'Game 1: Salem Loafer View Complex – Field 2 · Game 2: Salem Loafer View Complex – Field 2',
-    locationAddress: '500 East Canal Road, Salem, UT',
-    uniformOverride: 'Green Pinstripe Uniform',
-  },
-  {
-    date: localDate(2026,5,9), weekday: 'Sat', month: 'may',
-    tournament: 'Battle of the Roses',
-    games: [
-      { time: '8:00a', home: 'Apex', away: 'Utah Havoc', apex: 'home' },
-      { time: '12:00p', home: 'Uintah', away: 'Apex', apex: 'away' },
-    ],
-    locationName: 'Game 1: Salem Loafer View Complex – Field 2 · Game 2: Salem Loafer View Complex – Field 4',
-    locationAddress: '500 East Canal Road, Salem, UT',
-    uniformOverride: 'Tan Uniforms',
-  },
-  {
-    date: localDate(2026,5,11), weekday: 'Mon', month: 'may',
-    games: [
-      { time: '4:20p', home: 'Apex', away: 'Coyotes', apex: 'home' },
-      { time: '8:20p', home: 'Apex', away: 'Utah Fighters', apex: 'home' },
-    ],
-    locationName: 'Salem Loafer Complex – Field 5',
-    locationAddress: '500 East Canal Road, Salem, UT',
-  },
-  {
-    date: localDate(2026,5,13), weekday: 'Wed', month: 'may',
-    games: [{ time: '5:00p', home: 'Apex', away: 'SC Naturals', apex: 'home' }],
-    locationName: 'Salem Loafer Complex – Field 5',
-    locationAddress: '500 East Canal Road, Salem, UT',
-  },
-  {
-    date: localDate(2026,5,20), weekday: 'Wed', month: 'may',
-    games: [{ time: '6:00p', home: 'Apex', away: 'SF Dudes', apex: 'home' }],
-    locationName: 'Salem Loafer Complex – Field 5',
-    locationAddress: '500 East Canal Road, Salem, UT',
-  },
-  {
-    date: localDate(2026,5,29), weekday: 'Fri', month: 'may',
-    games: [
-      { time: '4:20p', home: 'Apex', away: 'Mountaineers', apex: 'home' },
-      { time: '6:20p', home: 'Xtreme', away: 'Apex', apex: 'away' },
-    ],
-    locationName: 'Game 1: Salem Loafer Complex – Field 2 · Game 2: Salem Loafer Complex – Field 3',
-    locationAddress: '500 East Canal Road, Salem, UT',
-  },
-  {
-    date: localDate(2026,6,1), weekday: 'Mon', month: 'june',
-    games: [
-      { time: '4:20p', home: 'UC Bambinos', away: 'Apex', apex: 'away' },
-      { time: '8:20p', home: 'Apex', away: 'Millard Bombers', apex: 'home' },
-    ],
-    locationName: 'Nephi Nebo View Complex – North Field',
-    locationAddress: '990 North 400 East, Nephi, UT',
-  },
-  {
-    date: localDate(2026,6,5), weekday: 'Fri', month: 'june',
-    tournament: 'Beehive Classic',
-    games: [
-      { time: '9:00 AM', home: 'Ghosts', away: 'Apex', apex: 'away', locationName: 'Field 4', locationAddress: '500 East Canal Road, Salem, UT' },
-      { time: '11:00 AM', home: 'Apex', away: 'Utah Braves', apex: 'home', locationName: 'Field 4', locationAddress: '500 East Canal Road, Salem, UT' },
-    ],
-    locationName: 'Salem Loafer View Complex',
-    locationAddress: '500 East Canal Road, Salem, UT',
-    poolNote: '11u Pool A',
-  },
-  {
-    date: localDate(2026,6,6), weekday: 'Sat', month: 'june',
-    tournament: 'Beehive Classic',
-    games: [
-      { time: '9:00 AM', home: 'Utah Fighters', away: 'Apex', apex: 'away', locationName: 'Field 1', locationAddress: '500 East Canal Road, Salem, UT' },
-      { time: '1:00 PM', home: 'SC Naturals', away: 'Apex', apex: 'away', locationName: 'Field 1', locationAddress: '500 East Canal Road, Salem, UT' },
-    ],
-    locationName: 'Salem Loafer View Complex',
-    locationAddress: '500 East Canal Road, Salem, UT',
-    poolNote: '11u Pool A',
-    advanceNote: 'Top seed from Pool A will advance to the Championship Game – time TBD',
-  },
-  {
-    date: localDate(2026,6,8), weekday: 'Mon', month: 'june',
-    games: [
-      { time: '4:20p', home: 'Apex', away: 'L7 Weenies', apex: 'home' },
-      { time: '8:20p', home: 'Mountaineers', away: 'Apex', apex: 'away' },
-    ],
-    locationName: 'Salem Loafer Complex – Field 5',
-    locationAddress: '500 East Canal Road, Salem, UT',
+    locationName: 'Lehi Veterans Park – Field 3',
+    locationAddress: '850 West Main Street, Lehi, UT',
   },
 ];
 
-const monthLabels = { april: 'April', may: 'May', june: 'June' };
+const monthLabels = { august: 'August', september: 'September' };
 
 function getStatus(date) {
   const d = new Date(date);
@@ -758,7 +591,7 @@ function renderAll(filter) {
     const entries = schedule.filter(e => !!e.tournament);
     html = entries.length ? entries.map(renderCard).join('') : '<p style="text-align:center;opacity:0.3;padding:40px 0;font-size:13px;">No tournaments found.</p>';
   } else {
-    for (const m of ['april', 'may', 'june']) {
+    for (const m of ['august', 'september']) {
       if (filter !== 'all' && filter !== m) continue;
       const entries = schedule.filter(e => e.month === m);
       if (!entries.length) continue;
