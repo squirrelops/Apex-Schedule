@@ -483,7 +483,7 @@
   <div id="schedule-container"></div>
 
   <footer>
-    <p class="update-note">Schedule updated per UPG Baseball &amp; GameChanger &middot; Last updated August 27, 2026</p>
+    <p class="update-note">Schedule updated per UPG Baseball &amp; GameChanger &middot; Last updated August 28, 2026</p>
     <a class="upg-link" href="https://www.upgbaseball.com/baseball/fall-monday-night-league/" target="_blank">&nearr; Full league schedule at upgbaseball.com</a>
   </footer>
 
@@ -546,12 +546,22 @@ const schedule = [
   {
     date: localDate(2026,9,4), weekday: 'Fri', month: 'september',
     tournament: 'Labor Day Tournament',
-    tbd: true,
+    games: [
+      { time: '1:00p', home: 'Bolts', away: 'Apex', apex: 'away' },
+      { time: '3:00p', home: 'Apex', away: 'SL Smoke', apex: 'home' },
+    ],
+    locationName: 'Gene Hillman Recreation Complex – Field #4',
+    locationAddress: '955 S Main St, Payson, UT 84651',
   },
   {
     date: localDate(2026,9,5), weekday: 'Sat', month: 'september',
     tournament: 'Labor Day Tournament',
-    tbd: true,
+    games: [
+      { time: '12:00p', home: 'Brighton Bengals', away: 'Apex', apex: 'away' },
+      { time: '2:00p', home: 'Apex', away: 'Park City Black', apex: 'home' },
+    ],
+    locationName: 'Gene Hillman Recreation Complex – Field #4',
+    locationAddress: '955 S Main St, Payson, UT 84651',
   },
   {
     date: localDate(2026,9,7), weekday: 'Mon', month: 'september',
