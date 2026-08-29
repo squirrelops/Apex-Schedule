@@ -227,6 +227,26 @@
     border-left-color: #0F3E2D;
   }
 
+  .game-card.cancelled {
+    border-left-color: #b23b3b;
+    background: #F2E9E6 !important;
+    background-color: #F2E9E6 !important;
+    opacity: 0.75;
+  }
+
+  .game-card.cancelled:hover {
+    border-left-color: #8f2e2e;
+  }
+
+  .cancel-note {
+    font-size: clamp(9px, 2.2vw, 10px);
+    color: #b23b3b;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 4px 0 2px;
+  }
+
   .tournament-banner {
     display: inline-block;
     background: #0F3E2D;
@@ -374,6 +394,7 @@
   .badge-upcoming { color: #a07830; border: 1.5px solid #a07830; background: transparent; }
   .badge-past { color: #c8b898; border: 1.5px solid #c8b898; background: transparent; }
   .badge-tournament { color: #2a7a58; border: 1.5px solid #2a7a58; background: transparent; }
+  .badge-cancelled { color: #b23b3b; border: 1.5px solid #b23b3b; background: transparent; }
 
   footer {
     text-align: center;
@@ -483,7 +504,7 @@
   <div id="schedule-container"></div>
 
   <footer>
-    <p class="update-note">Schedule updated per UPG Baseball &amp; GameChanger &middot; Last updated August 28, 2026</p>
+    <p class="update-note">Schedule updated per UPG Baseball &amp; GameChanger &middot; Last updated August 29, 2026</p>
     <a class="upg-link" href="https://www.upgbaseball.com/baseball/fall-monday-night-league/" target="_blank">&nearr; Full league schedule at upgbaseball.com</a>
   </footer>
 
@@ -526,6 +547,8 @@ const schedule = [
   {
     date: localDate(2026,8,29), weekday: 'Sat', month: 'august',
     tournament: 'Utah Swarm Round Robin',
+    cancelled: true,
+    cancelReason: 'Cancelled due to weather.',
     games: [
       { time: '12:00p', home: 'Apex', away: 'Nuggies 13U', apex: 'home' },
       { time: '2:00p', home: 'Apex', away: 'Utah Swarm 12U', apex: 'home' },
@@ -636,9 +659,10 @@ function renderCard(e) {
   const day = e.date.getDate();
   const mon = e.month.substring(0, 3).toUpperCase();
   const isTournament = !!e.tournament;
-  const cardClass = isTournament ? 'tournament' : (status === 'past' ? 'past' : status === 'upcoming' ? 'upcoming' : '');
-  const badgeClass = isTournament ? 'badge-tournament' : (status === 'today' ? 'badge-today' : status === 'past' ? 'badge-past' : 'badge-upcoming');
-  const badgeText = isTournament ? 'Tournament' : (status === 'today' ? '&bull; Today' : status === 'past' ? 'Played' : 'Upcoming');
+  const isCancelled = !!e.cancelled;
+  const cardClass = isCancelled ? 'cancelled' : isTournament ? 'tournament' : (status === 'past' ? 'past' : status === 'upcoming' ? 'upcoming' : '');
+  const badgeClass = isCancelled ? 'badge-cancelled' : isTournament ? 'badge-tournament' : (status === 'today' ? 'badge-today' : status === 'past' ? 'badge-past' : 'badge-upcoming');
+  const badgeText = isCancelled ? 'Cancelled' : isTournament ? 'Tournament' : (status === 'today' ? '&bull; Today' : status === 'past' ? 'Played' : 'Upcoming');
   const uniform = e.uniformOverride || TEMP_UNIFORM_OVERRIDE || uniforms[e.weekday] || '';
 
   const tournamentBanner = isTournament ? `<div class="tournament-banner">&#9733; ${e.tournament}</div>` : '';
@@ -648,6 +672,7 @@ function renderCard(e) {
 
   const poolNoteHtml = e.poolNote ? `<div class="pool-note">${e.poolNote}</div>` : '';
   const advanceNoteHtml = e.advanceNote ? `<div class="advance-note"><em>${e.advanceNote}</em></div>` : '';
+  const cancelNoteHtml = e.cancelReason ? `<div class="cancel-note">${e.cancelReason}</div>` : '';
 
   const locationHtml = !e.locationName
     ? `<div><span class="uniform-note">&#128085; ${uniform}</span></div>`
@@ -670,6 +695,7 @@ function renderCard(e) {
       <div class="game-matchups">${matchupsHtml}</div>
       ${poolNoteHtml}
       ${advanceNoteHtml}
+      ${cancelNoteHtml}
       <div class="game-location">${locationHtml}</div>
     </div>
     <span class="status-badge ${badgeClass}">${badgeText}</span>
