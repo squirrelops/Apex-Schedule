@@ -1,1 +1,725 @@
-@/home/claude/apex/index.html.b64
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<title>Apex Baseball — 2026 UPG Fall League Schedule</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:ital,wght@0,300;0,500;0,700;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    color-scheme: light only;
+    --green: #0F3E2D;
+    --green-light: #2a7a58;
+    --cream: #EDE3D1;
+    --cream-dark: #d9ccb5;
+    --cream-darker: #c8b898;
+    --card: #F7F2E8;
+    --text: #0F3E2D;
+    --gold: #a07830;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; color-scheme: light only; }
+
+  html, body {
+    background: #EDE3D1 !important;
+    background-color: #EDE3D1 !important;
+    font-family: 'DM Sans', sans-serif;
+    color: #0F3E2D !important;
+    min-height: 100vh;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  .page {
+    background-color: #EDE3D1;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 16px 80px;
+  }
+
+  header {
+    text-align: center;
+    padding: 40px 0 32px;
+    border-bottom: 2px solid #0F3E2D;
+    margin-bottom: 32px;
+    background-color: #EDE3D1;
+  }
+
+  .top-rule {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+  }
+
+  .rule-line { height: 1px; width: 40px; background: #0F3E2D; opacity: 0.35; flex-shrink: 0; }
+
+  .league-tag {
+    font-size: clamp(8px, 2vw, 10px);
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #0F3E2D;
+    opacity: 0.55;
+    text-align: center;
+  }
+
+  header h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(44px, 16vw, 108px);
+    font-weight: 900;
+    line-height: 0.88;
+    color: #0F3E2D;
+  }
+
+  header h1 .sub {
+    font-size: clamp(12px, 3.5vw, 26px);
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    display: block;
+    margin-top: 8px;
+    color: #0F3E2D;
+    opacity: 0.5;
+  }
+
+  .season-stripe {
+    display: inline-block;
+    background: #0F3E2D;
+    color: #EDE3D1;
+    font-size: clamp(8px, 2vw, 10px);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 7px 18px;
+    margin-top: 18px;
+  }
+
+  .disclaimer {
+    background: #F7F2E8;
+    border: 1px solid #d9ccb5;
+    border-left: 4px solid #a07830;
+    padding: 12px 14px;
+    margin-bottom: 16px;
+    font-size: clamp(11px, 2.8vw, 12px);
+    color: #0F3E2D;
+    line-height: 1.55;
+  }
+
+  .disclaimer strong { font-weight: 700; }
+
+  .gc-link-bar {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .gc-link {
+    display: inline-block;
+    background: #0F3E2D;
+    color: #EDE3D1;
+    font-size: clamp(10px, 2.5vw, 11px);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 12px 20px;
+    text-decoration: none;
+    transition: opacity 0.15s;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .gc-link:hover { opacity: 0.85; }
+
+  .filter-bar {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+    justify-content: center;
+  }
+
+  .filter-btn {
+    background: #EDE3D1;
+    border: 1.5px solid #c8b898;
+    color: #0F3E2D;
+    opacity: 0.6;
+    padding: 9px 14px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(10px, 2.5vw, 11px);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.15s;
+    min-height: 44px;
+    touch-action: manipulation;
+  }
+
+  .filter-btn:hover { opacity: 1; border-color: #0F3E2D; }
+
+  .filter-btn.active {
+    background: #0F3E2D;
+    border-color: #0F3E2D;
+    color: #EDE3D1;
+    opacity: 1;
+  }
+
+  .month-header {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: #0F3E2D;
+    opacity: 0.4;
+    padding: 20px 0 10px;
+    border-bottom: 1px solid #d9ccb5;
+    margin-bottom: 12px;
+    background-color: #EDE3D1;
+  }
+
+  .game-card {
+    background: #F7F2E8 !important;
+    background-color: #F7F2E8 !important;
+    border: 1px solid #d9ccb5;
+    border-left: 6px solid #0F3E2D;
+    border-radius: 2px;
+    padding: 14px 14px 14px 14px;
+    margin-bottom: 10px;
+    display: grid;
+    grid-template-columns: 68px 1fr auto;
+    align-items: start;
+    gap: 12px;
+    transition: all 0.18s ease;
+    box-shadow: 0 2px 6px rgba(15,62,45,0.07), 0 4px 16px rgba(15,62,45,0.05);
+  }
+
+  .game-card:hover {
+    box-shadow: 0 4px 12px rgba(15,62,45,0.14), 0 8px 28px rgba(15,62,45,0.09);
+    transform: translateX(3px) translateY(-1px);
+    border-left-color: #2a7a58;
+  }
+
+  .game-card.past { opacity: 0.45; border-left-color: #c8b898; box-shadow: 0 1px 4px rgba(15,62,45,0.04); }
+
+  .game-card.upcoming {
+    border-left-color: #a07830;
+    box-shadow: 0 2px 6px rgba(160,120,48,0.1), 0 4px 18px rgba(160,120,48,0.07);
+  }
+
+  .game-card.upcoming:hover {
+    border-left-color: #c09040;
+    box-shadow: 0 4px 14px rgba(160,120,48,0.18), 0 8px 28px rgba(160,120,48,0.1);
+  }
+
+  .game-card.tournament {
+    border-left-color: #2a7a58;
+    background: #F0EDE3 !important;
+    background-color: #F0EDE3 !important;
+  }
+
+  .game-card.tournament:hover {
+    border-left-color: #0F3E2D;
+  }
+
+  .game-card.cancelled {
+    border-left-color: #b23b3b;
+    background: #F2E9E6 !important;
+    background-color: #F2E9E6 !important;
+    opacity: 0.75;
+  }
+
+  .game-card.cancelled:hover {
+    border-left-color: #8f2e2e;
+  }
+
+  .cancel-note {
+    font-size: clamp(9px, 2.2vw, 10px);
+    color: #b23b3b;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 4px 0 2px;
+  }
+
+  .tournament-banner {
+    display: inline-block;
+    background: #0F3E2D;
+    color: #EDE3D1;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    margin-bottom: 6px;
+    max-width: 100%;
+    white-space: normal;
+    line-height: 1.4;
+  }
+
+  .date-col {
+    text-align: center;
+    border-right: 1px solid #d9ccb5;
+    padding-right: 12px;
+    padding-top: 2px;
+  }
+
+  .date-day {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 34px;
+    font-weight: 900;
+    line-height: 1;
+    color: #0F3E2D;
+  }
+
+  .date-weekday {
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #0F3E2D;
+    opacity: 0.38;
+    font-weight: 700;
+    margin-top: 2px;
+  }
+
+  .date-month {
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #0F3E2D;
+    opacity: 0.65;
+    font-weight: 700;
+    margin-top: 2px;
+  }
+
+  .game-col { min-width: 0; overflow: hidden; }
+  .game-matchups { display: flex; flex-direction: column; gap: 7px; }
+  .matchup-row { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+
+  .game-time {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: #0F3E2D;
+    opacity: 0.4;
+    white-space: nowrap;
+    min-width: 34px;
+    flex-shrink: 0;
+  }
+
+  .game-vs { font-size: clamp(12px, 3.2vw, 14px); font-weight: 500; color: #0F3E2D; line-height: 1.35; word-break: break-word; }
+  .game-vs .apex-name { color: #0F3E2D; font-weight: 800; }
+
+  .game-location { margin-top: 8px; }
+
+  .per-game-location {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-top: 3px;
+    margin-bottom: 4px;
+    padding-left: 2px;
+    flex-wrap: wrap;
+  }
+
+  .per-game-location .location-name {
+    font-size: clamp(9.5px, 2.4vw, 10.5px);
+    font-style: italic;
+    opacity: 0.45;
+  }
+
+  .per-game-location .location-link {
+    font-size: clamp(9px, 2.2vw, 10px);
+    margin-top: 0;
+    min-height: unset;
+    line-height: 1.4;
+    padding: 0;
+    opacity: 0.7;
+  }
+
+  .pool-note { font-size: clamp(9px, 2.2vw, 10px); color: #0F3E2D; opacity: 0.55; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin: 4px 0 2px; }
+  .advance-note { font-size: clamp(9px, 2.2vw, 10px); color: #0F3E2D; opacity: 0.5; margin: 2px 0 4px; line-height: 1.4; }
+
+  .location-name { font-size: clamp(10px, 2.6vw, 11px); color: #0F3E2D; opacity: 0.55; font-weight: 600; line-height: 1.4; }
+  .location-address { font-size: clamp(9.5px, 2.4vw, 10.5px); color: #0F3E2D; opacity: 0.35; font-style: italic; margin-top: 2px; line-height: 1.4; }
+
+  .uniform-note {
+    display: inline-block;
+    margin-top: 6px;
+    font-size: clamp(9px, 2.2vw, 10px);
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: #0F3E2D;
+    opacity: 0.5;
+    background: #EDE3D1;
+    padding: 4px 8px;
+    border: 1px solid #d9ccb5;
+  }
+
+  .location-link {
+    display: inline-block;
+    margin-top: 6px;
+    font-size: clamp(10px, 2.6vw, 11px);
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: #a07830;
+    text-decoration: none;
+    opacity: 0.9;
+    padding: 4px 0;
+    min-height: 36px;
+    line-height: 28px;
+  }
+
+  .location-link:hover { opacity: 1; text-decoration: underline; }
+
+  .status-badge {
+    white-space: nowrap;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 8px;
+    align-self: flex-start;
+  }
+
+  .badge-today { background: #0F3E2D; color: #EDE3D1; animation: bpulse 1.8s ease-in-out infinite; }
+  @keyframes bpulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
+  .badge-upcoming { color: #a07830; border: 1.5px solid #a07830; background: transparent; }
+  .badge-past { color: #c8b898; border: 1.5px solid #c8b898; background: transparent; }
+  .badge-tournament { color: #2a7a58; border: 1.5px solid #2a7a58; background: transparent; }
+  .badge-cancelled { color: #b23b3b; border: 1.5px solid #b23b3b; background: transparent; }
+
+  footer {
+    text-align: center;
+    padding-top: 32px;
+    border-top: 1px solid #d9ccb5;
+    margin-top: 40px;
+    background-color: #EDE3D1;
+  }
+
+  .update-note { font-size: clamp(9px, 2.2vw, 10px); color: #0F3E2D; opacity: 0.3; letter-spacing: 0.08em; text-transform: uppercase; line-height: 1.5; }
+
+  .upg-link {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: clamp(10px, 2.6vw, 11px);
+    color: #0F3E2D;
+    text-decoration: none;
+    font-weight: 600;
+    opacity: 0.5;
+    letter-spacing: 0.05em;
+    padding: 4px 0;
+  }
+
+  .upg-link:hover { opacity: 1; text-decoration: underline; }
+
+  @media (max-width: 480px) {
+    .page { padding: 0 12px 64px; }
+    header { padding: 28px 0 24px; margin-bottom: 24px; }
+    .game-card {
+      grid-template-columns: 58px 1fr;
+      padding: 12px 12px 12px 10px;
+      gap: 10px;
+    }
+    .status-badge { display: none; }
+    .date-day { font-size: 30px; }
+    .date-col { padding-right: 10px; }
+    .game-vs { font-size: 13px; }
+    .filter-bar { gap: 5px; }
+    .filter-btn { padding: 8px 11px; font-size: 10px; letter-spacing: 0.08em; }
+    .tournament-banner { font-size: 8px; padding: 3px 7px; }
+    .top-rule { gap: 8px; margin-bottom: 14px; }
+    .rule-line { width: 24px; }
+  }
+
+  @media (max-width: 375px) {
+    .page { padding: 0 10px 60px; }
+    header h1 { font-size: 42px; }
+    header h1 .sub { font-size: 11px; letter-spacing: 0.2em; }
+    .game-card {
+      grid-template-columns: 52px 1fr;
+      padding: 10px 10px 10px 8px;
+      gap: 9px;
+    }
+    .date-day { font-size: 26px; }
+    .date-col { padding-right: 9px; }
+    .matchup-row { gap: 6px; }
+    .game-time { min-width: 30px; font-size: 9.5px; }
+    .game-vs { font-size: 12.5px; }
+    .location-name { font-size: 10px; }
+    .location-address { font-size: 9.5px; }
+    .uniform-note { font-size: 9px; padding: 3px 7px; }
+    .location-link { font-size: 10px; }
+    .filter-btn { padding: 8px 10px; font-size: 9.5px; }
+    .disclaimer { font-size: 11px; padding: 11px 12px; }
+    .gc-link { font-size: 10px; padding: 12px 16px; }
+    .season-stripe { font-size: 8px; letter-spacing: 0.14em; padding: 6px 14px; }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    html, body, .page, header, .game-card, .month-header, footer, .filter-btn, .disclaimer {
+      background-color: #EDE3D1 !important;
+      color: #0F3E2D !important;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="top-rule">
+      <span class="rule-line"></span>
+      <span class="league-tag">UPG Fall Monday Night League &middot; 12U</span>
+      <span class="rule-line"></span>
+    </div>
+    <h1>APEX<span class="sub">Baseball Club</span></h1>
+    <div class="season-stripe">2026 Fall Schedule</div>
+  </header>
+
+  <div class="disclaimer">
+    <strong>Note:</strong> Game times listed are not player arrival times. Check <strong>GameChanger</strong> for your arrival time and any last-minute updates. The August 31st games were rained out; check back for makeup date details.
+  </div>
+
+  <div class="gc-link-bar">
+    <a class="gc-link" href="https://web.gc.com/teams/7UI9Wmmd3mo9/live?pid=Copy&c=team_share_link" target="_blank">&#9654; Watch Live on GameChanger</a>
+  </div>
+
+  <div class="filter-bar">
+    <button class="filter-btn" onclick="filterGames('all', this)">All Games</button>
+    <button class="filter-btn active" onclick="filterGames('upcoming', this)">Upcoming</button>
+    <button class="filter-btn" onclick="filterGames('tournaments', this)">Tournaments</button>
+    <button class="filter-btn" onclick="filterGames('august', this)">August</button>
+    <button class="filter-btn" onclick="filterGames('september', this)">September</button>
+    <button class="filter-btn" onclick="filterGames('october', this)">October</button>
+  </div>
+
+  <div id="schedule-container"></div>
+
+  <footer>
+    <p class="update-note">Schedule updated per UPG Baseball &amp; GameChanger &middot; Last updated September 2, 2026</p>
+    <a class="upg-link" href="https://www.upgbaseball.com/baseball/fall-monday-night-league/" target="_blank">&nearr; Full league schedule at upgbaseball.com</a>
+  </footer>
+
+</div>
+
+<script>
+function localDate(y, m, d) {
+  return new Date(y, m - 1, d);
+}
+
+const today = new Date();
+today.setHours(0, 0, 0, 0);
+
+// TEMP: new boys' Green Hooded Tee Jersey uniforms have not arrived yet.
+// This override forces every game to show the temp uniform note below.
+// Remove or set this to null to revert to the normal per-weekday uniforms lookup.
+const TEMP_UNIFORM_OVERRIDE = 'Green Hooded Tee Jersey, White Pants, Green Socks & Belt';
+
+const uniforms = {
+  'Mon': 'Tan Uniform',
+};
+
+const schedule = [
+  {
+    date: localDate(2026,8,17), weekday: 'Mon', month: 'august',
+    games: [
+      { time: '6:20p', home: 'Apex', away: 'Saratoga Stingers', apex: 'home' },
+    ],
+    locationName: 'Lehi Veterans Park – Field 3',
+    locationAddress: '850 West Main Street, Lehi, UT',
+  },
+  {
+    date: localDate(2026,8,24), weekday: 'Mon', month: 'august',
+    games: [
+      { time: '6:20p', home: 'Lehi Tigers', away: 'Apex', apex: 'away' },
+    ],
+    locationName: 'Salem Loafer Complex – Field 2',
+    locationAddress: '500 East Canal Road, Salem, UT',
+  },
+  {
+    date: localDate(2026,8,29), weekday: 'Sat', month: 'august',
+    tournament: 'Utah Swarm Round Robin',
+    cancelled: true,
+    cancelReason: 'Cancelled due to weather.',
+    games: [
+      { time: '12:00p', home: 'Apex', away: 'Nuggies 13U', apex: 'home' },
+      { time: '2:00p', home: 'Apex', away: 'Utah Swarm 12U', apex: 'home' },
+    ],
+    advanceNote: 'Scrimmage vs. Nuggies 13U: arrive 11:00 AM, plays 12:00 PM to 2:00 PM.',
+    locationName: 'West Valley City Park',
+    locationAddress: '4552 W 3500 S, West Valley City, UT',
+  },
+  {
+    date: localDate(2026,9,4), weekday: 'Fri', month: 'september',
+    tournament: 'Labor Day Tournament',
+    games: [
+      { time: '1:00p', home: 'Bolts', away: 'Apex', apex: 'away' },
+      { time: '3:00p', home: 'Apex', away: 'SL Smoke', apex: 'home' },
+    ],
+    locationName: 'Gene Hillman Recreation Complex – Field #4',
+    locationAddress: '955 S Main St, Payson, UT 84651',
+  },
+  {
+    date: localDate(2026,9,5), weekday: 'Sat', month: 'september',
+    tournament: 'Labor Day Tournament',
+    games: [
+      { time: '12:00p', home: 'Brighton Bengals', away: 'Apex', apex: 'away' },
+      { time: '2:00p', home: 'Apex', away: 'Park City Black', apex: 'home' },
+    ],
+    locationName: 'Gene Hillman Recreation Complex – Field #4',
+    locationAddress: '955 S Main St, Payson, UT 84651',
+  },
+  {
+    date: localDate(2026,9,7), weekday: 'Mon', month: 'september',
+    tournament: 'Labor Day Tournament',
+    tbd: true,
+  },
+  {
+    date: localDate(2026,9,14), weekday: 'Mon', month: 'september',
+    games: [
+      { time: '4:20p', home: 'Coyotes', away: 'Apex', apex: 'away' },
+      { time: '8:20p', home: 'Apex', away: 'Sluggers', apex: 'home' },
+    ],
+    locationName: 'Salem Loafer Complex – Field 3',
+    locationAddress: '500 East Canal Road, Salem, UT',
+  },
+  {
+    date: localDate(2026,9,21), weekday: 'Mon', month: 'september',
+    games: [
+      { time: '4:20p', home: 'Apex', away: 'Bullets', apex: 'home' },
+    ],
+    locationName: 'Salem Loafer Complex – Field 3',
+    locationAddress: '500 East Canal Road, Salem, UT',
+  },
+  {
+    date: localDate(2026,9,21), weekday: 'Mon', month: 'september',
+    games: [
+      { time: '8:20p', home: 'Apex', away: 'Delta Baseball', apex: 'home' },
+    ],
+    locationName: 'Salem Veterans Park – East Field',
+    locationAddress: '60 N 100 E, Salem, UT 84653',
+  },
+  {
+    date: localDate(2026,10,2), weekday: 'Fri', month: 'october',
+    tournament: 'UPG Wood Bat Tournament',
+    tbd: true,
+  },
+  {
+    date: localDate(2026,10,3), weekday: 'Sat', month: 'october',
+    tournament: 'UPG Wood Bat Tournament',
+    tbd: true,
+  },
+];
+
+const monthLabels = { august: 'August', september: 'September', october: 'October' };
+
+function getStatus(date) {
+  const d = new Date(date);
+  d.setHours(0, 0, 0, 0);
+  if (d.getTime() === today.getTime()) return 'today';
+  if (d < today) return 'past';
+  return 'upcoming';
+}
+
+function mapsLink(address) {
+  return `https://maps.apple.com/?q=${encodeURIComponent(address)}`;
+}
+
+function renderMatchup(g, tbd) {
+  if (tbd) {
+    return `<div class="matchup-row"><span class="game-time">TBD</span><span class="game-vs">Games &amp; times to be announced</span></div>`;
+  }
+  const h = g.apex === 'home' ? `<span class="apex-name">Apex</span>` : g.home;
+  const a = g.apex === 'away' ? `<span class="apex-name">Apex</span>` : g.away;
+  const gameLocationHtml = g.locationName
+    ? `<div class="per-game-location"><span class="location-name">&#x1F4CD; ${g.locationName}</span><a class="location-link" href="${mapsLink(g.locationAddress)}" target="_blank">Directions &rarr;</a></div>`
+    : '';
+  return `<div class="matchup-row"><span class="game-time">${g.time}</span><span class="game-vs">${h} vs. ${a}</span></div>${gameLocationHtml}`;
+}
+
+function renderCard(e) {
+  const status = getStatus(e.date);
+  const day = e.date.getDate();
+  const mon = e.month.substring(0, 3).toUpperCase();
+  const isTournament = !!e.tournament;
+  const isCancelled = !!e.cancelled;
+  const cardClass = isCancelled ? 'cancelled' : isTournament ? 'tournament' : (status === 'past' ? 'past' : status === 'upcoming' ? 'upcoming' : '');
+  const badgeClass = isCancelled ? 'badge-cancelled' : isTournament ? 'badge-tournament' : (status === 'today' ? 'badge-today' : status === 'past' ? 'badge-past' : 'badge-upcoming');
+  const badgeText = isCancelled ? 'Cancelled' : isTournament ? 'Tournament' : (status === 'today' ? '&bull; Today' : status === 'past' ? 'Played' : 'Upcoming');
+  const uniform = e.uniformOverride || TEMP_UNIFORM_OVERRIDE || uniforms[e.weekday] || '';
+
+  const tournamentBanner = isTournament ? `<div class="tournament-banner">&#9733; ${e.tournament}</div>` : '';
+  const matchupsHtml = e.tbd
+    ? renderMatchup(null, true)
+    : e.games.map(g => renderMatchup(g, false)).join('');
+
+  const poolNoteHtml = e.poolNote ? `<div class="pool-note">${e.poolNote}</div>` : '';
+  const advanceNoteHtml = e.advanceNote ? `<div class="advance-note"><em>${e.advanceNote}</em></div>` : '';
+  const cancelNoteHtml = e.cancelReason ? `<div class="cancel-note">${e.cancelReason}</div>` : '';
+
+  const locationHtml = !e.locationName
+    ? `<div><span class="uniform-note">&#128085; ${uniform}</span></div>`
+    : e.locationAddress
+    ? `<div class="location-name">&#x1F4CD; ${e.locationName}</div>
+       <div class="location-address">${e.locationAddress}</div>
+       <div><span class="uniform-note">&#128085; ${uniform}</span></div>
+       <a class="location-link" href="${mapsLink(e.locationAddress)}" target="_blank">Get Directions &rarr;</a>`
+    : `<div class="location-name">&#x1F4CD; ${e.locationName}</div>
+       <div><span class="uniform-note">&#128085; ${uniform}</span></div>`;
+
+  return `<div class="game-card ${cardClass}">
+    <div class="date-col">
+      <div class="date-day">${day}</div>
+      <div class="date-weekday">${e.weekday}</div>
+      <div class="date-month">${mon}</div>
+    </div>
+    <div class="game-col">
+      ${tournamentBanner}
+      <div class="game-matchups">${matchupsHtml}</div>
+      ${poolNoteHtml}
+      ${advanceNoteHtml}
+      ${cancelNoteHtml}
+      <div class="game-location">${locationHtml}</div>
+    </div>
+    <span class="status-badge ${badgeClass}">${badgeText}</span>
+  </div>`;
+}
+
+function renderAll(filter) {
+  const container = document.getElementById('schedule-container');
+  let html = '';
+  if (filter === 'upcoming') {
+    const entries = schedule.filter(e => getStatus(e.date) !== 'past');
+    html = entries.length ? entries.map(renderCard).join('') : '<p style="text-align:center;opacity:0.3;padding:40px 0;font-size:13px;">No upcoming games.</p>';
+  } else if (filter === 'tournaments') {
+    const entries = schedule.filter(e => !!e.tournament);
+    html = entries.length ? entries.map(renderCard).join('') : '<p style="text-align:center;opacity:0.3;padding:40px 0;font-size:13px;">No tournaments found.</p>';
+  } else {
+    for (const m of ['august', 'september', 'october']) {
+      if (filter !== 'all' && filter !== m) continue;
+      const entries = schedule.filter(e => e.month === m);
+      if (!entries.length) continue;
+      html += `<div><div class="month-header">${monthLabels[m]}</div>${entries.map(renderCard).join('')}</div>`;
+    }
+  }
+  container.innerHTML = html;
+}
+
+function filterGames(type, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderAll(type);
+}
+
+renderAll('upcoming');
+</script>
+</body>
+</html>
