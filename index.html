@@ -485,7 +485,7 @@
   </header>
 
   <div class="disclaimer">
-    <strong>Note:</strong> Game times listed are not player arrival times. Check <strong>GameChanger</strong> for your arrival time and any last-minute updates. The August 31st games were rained out; check back for makeup date details.
+    <strong>Note:</strong> Game times listed are not player arrival times. Check <strong>GameChanger</strong> for your arrival time and any last-minute updates. Schedule reflects UPG's revised (rain-update) schedule.
   </div>
 
   <div class="gc-link-bar">
@@ -504,7 +504,7 @@
   <div id="schedule-container"></div>
 
   <footer>
-    <p class="update-note">Schedule updated per UPG Baseball &amp; GameChanger &middot; Last updated September 2, 2026</p>
+    <p class="update-note">Schedule updated per UPG Baseball &amp; GameChanger &middot; Last updated September 11, 2026</p>
     <a class="upg-link" href="https://www.upgbaseball.com/baseball/fall-monday-night-league/" target="_blank">&nearr; Full league schedule at upgbaseball.com</a>
   </footer>
 
@@ -558,6 +558,15 @@ const schedule = [
     locationAddress: '4552 W 3500 S, West Valley City, UT',
   },
   {
+    date: localDate(2026,8,31), weekday: 'Mon', month: 'august',
+    games: [
+      { time: '6:20p', home: 'Apex', away: 'Delta Baseball', apex: 'home' },
+      { time: '8:20p', home: 'Apex', away: 'Salem Outlaws', apex: 'home' },
+    ],
+    locationName: 'Nephi NeboView Middle Field',
+    locationAddress: '990 North 400 East, Nephi, UT',
+  },
+  {
     date: localDate(2026,9,4), weekday: 'Fri', month: 'september',
     tournament: 'Labor Day Tournament',
     games: [
@@ -606,6 +615,15 @@ const schedule = [
     ],
     locationName: 'Salem Veterans Park – East Field',
     locationAddress: '60 N 100 E, Salem, UT 84653',
+  },
+  {
+    date: localDate(2026,9,28), weekday: 'Mon', month: 'september',
+    games: [
+      { time: '5:30p', home: 'Apex', away: 'Delta Baseball', apex: 'home' },
+      { time: '7:30p', home: 'Apex', away: 'Salem Outlaws', apex: 'home' },
+    ],
+    locationName: 'Nephi NeboView Middle Field',
+    locationAddress: '990 North 400 East, Nephi, UT',
   },
   {
     date: localDate(2026,10,2), weekday: 'Fri', month: 'october',
